@@ -1,0 +1,1998 @@
+
+  [
+    {
+      "type": "node",
+      "id": 30729987,
+      "lat": 5.6064531,
+      "lon": -0.1773089,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:bench": "2022-01-14",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Airport First",
+        "operator": "Metro Mass Transport",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 30730108,
+      "lat": 5.587401,
+      "lon": -0.1675613,
+      "tags": {
+        "bench": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Home Touch",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 30778854,
+      "lat": 5.601804,
+      "lon": -0.198887,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Roman Ridge 2nd",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 325329480,
+      "lat": 5.6247652,
+      "lon": -0.2834304,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Sowutuom",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1200964747,
+      "lat": 5.6747917,
+      "lon": -0.0435957,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Under Bridge",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project",
+        "station": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1986177611,
+      "lat": 5.68398,
+      "lon": -0.2776609,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "ACP Junction",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2026403679,
+      "lat": 5.5293198,
+      "lon": -0.2639939,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Agege Last Stop",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2026403681,
+      "lat": 5.529988,
+      "lon": -0.2652064,
+      "tags": {
+        "bench": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Dansoman Last Stop",
+        "public_transport": "platform",
+        "shelter": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2581150583,
+      "lat": 5.6276839,
+      "lon": -0.1764355,
+      "tags": {
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Shiashie",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2584775101,
+      "lat": 5.5738018,
+      "lon": -0.1975096,
+      "tags": {
+        "alt_name": "Kanda Total",
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Mobil / Kanda Overhead",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2815791263,
+      "lat": 5.6028962,
+      "lon": -0.256375,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nyamekye",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2917271600,
+      "lat": 5.604561,
+      "lon": -0.2259544,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "check_date:shelter": "2024-11-15",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Tesano",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2917277220,
+      "lat": 5.6139906,
+      "lon": -0.2229509,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Abofu",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2917277221,
+      "lat": 5.613729,
+      "lon": -0.2228677,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Abofu",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2961496543,
+      "lat": 5.6041936,
+      "lon": -0.2256592,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Tesano",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2961513337,
+      "lat": 5.5621452,
+      "lon": -0.1725142,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Labone",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2961513338,
+      "lat": 5.5629928,
+      "lon": -0.1735575,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Labone",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2968610393,
+      "lat": 5.5904487,
+      "lon": -0.1569622,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Supply Bus Stop",
+        "public_transport": "platform",
+        "shelter": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3045917870,
+      "lat": 5.6220398,
+      "lon": -0.1747326,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2022-03-19",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Accra Mall Roundabout",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3045917876,
+      "lat": 5.6227677,
+      "lon": -0.1740477,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2022-09-08",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Accra Mall",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3073421167,
+      "lat": 5.6173445,
+      "lon": -0.1944473,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Dzorwulu Junction",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3109289830,
+      "lat": 5.5673255,
+      "lon": -0.2173233,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Odorna",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3109291911,
+      "lat": 5.569608,
+      "lon": -0.2132665,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Circle",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3133741256,
+      "lat": 5.6420983,
+      "lon": -0.164944,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "local_ref": "La Bawaleshie",
+        "name": "Bawaleshie Second",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3154321446,
+      "lat": 5.6037223,
+      "lon": -0.2578491,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "local_ref": "Tabora No1",
+        "name": "Tabora Number 1",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3154428908,
+      "lat": 5.6052237,
+      "lon": -0.2516826,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "local_ref": "Abrantie",
+        "name": "Abrantie",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3154441074,
+      "lat": 5.6015887,
+      "lon": -0.2559185,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "local_ref": "mambo Bus stop",
+        "name": "Mampong",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3154450964,
+      "lat": 5.6006069,
+      "lon": -0.2554957,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "mambo Bus stop",
+        "name": "Mampong",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3210498662,
+      "lat": 5.5791002,
+      "lon": -0.155464,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Villas",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3462084088,
+      "lat": 5.6434962,
+      "lon": -0.1700242,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "High Tension",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3676894013,
+      "lat": 5.6395578,
+      "lon": 0.007883,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3676894839,
+      "lat": 5.6474365,
+      "lon": 0.0022573,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Site 20",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3676894846,
+      "lat": 5.6510377,
+      "lon": 0.0002416,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Site 10",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3676894848,
+      "lat": 5.6580141,
+      "lon": -0.0035486,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Community 4",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3676894849,
+      "lat": 5.6646989,
+      "lon": -0.0062325,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Community 7",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3785166428,
+      "lat": 5.6512389,
+      "lon": -0.1292828,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Rawlings Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4150793105,
+      "lat": 5.620506,
+      "lon": -0.1764853,
+      "tags": {
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "check_date:shelter": "2021-12-30",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Spanner",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4150793106,
+      "lat": 5.6204153,
+      "lon": -0.1761345,
+      "tags": {
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "check_date:shelter": "2021-12-30",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Spanner",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4184924189,
+      "lat": 5.5717215,
+      "lon": -0.206208,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Paloma",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4184924289,
+      "lat": 5.5720606,
+      "lon": -0.2058868,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Paloma",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4198267793,
+      "lat": 5.5675097,
+      "lon": -0.1817192,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Danquah Second",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4286137016,
+      "lat": 5.6388495,
+      "lon": -0.2424338,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "St. Johns",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4286153107,
+      "lat": 5.5735046,
+      "lon": -0.192666,
+      "tags": {
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "GBC",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4311941192,
+      "lat": 5.6836426,
+      "lon": -0.1336375,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Ashaley Botwe",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4350253589,
+      "lat": 5.7421827,
+      "lon": -0.0129637,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Gbetsile Junction",
+        "public_transport": "platform",
+        "shelter": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4382426259,
+      "lat": 5.6284053,
+      "lon": -0.1767713,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Shiashie",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4400481895,
+      "lat": 5.7059993,
+      "lon": -0.1710276,
+      "tags": {
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Adenta Barrier",
+        "official_status": "unofficial",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4400503912,
+      "lat": 5.6789794,
+      "lon": -0.0122578,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Community 9",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4400503928,
+      "lat": 5.5764716,
+      "lon": -0.1525381,
+      "tags": {
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Palm Wine",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4400510902,
+      "lat": 5.5882053,
+      "lon": -0.163151,
+      "tags": {
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Congo Junction",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4458149736,
+      "lat": 5.6528008,
+      "lon": -0.2713953,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "ICGC",
+        "public_transport": "platform",
+        "source": "survey 2019 - SmartTransit"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4461423012,
+      "lat": 5.6184985,
+      "lon": -0.1911487,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Dzorwulu Junction",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4462281289,
+      "lat": 5.5710149,
+      "lon": -0.2855065,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Mallam Junction",
+        "name:en": "MallamJunction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4600181749,
+      "lat": 5.5477904,
+      "lon": -0.3482181,
+      "tags": {
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Bortianor",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4710912590,
+      "lat": 5.616029,
+      "lon": -0.2483251,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "High Tension",
+        "name:en": "High Tention",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4739843023,
+      "lat": 5.5655092,
+      "lon": -0.288941,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "McCarthy Junction",
+        "name:en": "McCarthy Junction",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4739884021,
+      "lat": 5.5698342,
+      "lon": -0.285949,
+      "tags": {
+        "bench": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Mallam Junction",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4740601928,
+      "lat": 5.5508216,
+      "lon": -0.3559126,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Mile Eleven",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4740601929,
+      "lat": 5.5474959,
+      "lon": -0.3481346,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Bortianor",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4740602036,
+      "lat": 5.5796764,
+      "lon": -0.2648468,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Odorkor",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4740602037,
+      "lat": 5.6518837,
+      "lon": -0.1799915,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2023-01-13",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Legon Second",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4740602043,
+      "lat": 5.6481575,
+      "lon": -0.1798695,
+      "tags": {
+        "bench": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Legon Second",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4740602044,
+      "lat": 5.546809,
+      "lon": -0.381985,
+      "tags": {
+        "bench": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2022-03-23",
+        "highway": "bus_stop",
+        "name": "Tuba",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4740682125,
+      "lat": 5.5690758,
+      "lon": -0.2861767,
+      "tags": {
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Mallam Junction",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4740682127,
+      "lat": 5.5511501,
+      "lon": -0.3292343,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Weija Barrier",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4752766522,
+      "lat": 5.5873886,
+      "lon": -0.2717172,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Been To",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4752773021,
+      "lat": 5.5583351,
+      "lon": -0.2971831,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Mendskrom",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4971250982,
+      "lat": 5.6240242,
+      "lon": -0.1738463,
+      "tags": {
+        "alt_name": "Accra Mall Junction",
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "check_date:shelter": "2025-02-12",
+        "highway": "bus_stop",
+        "name": "Tetteh Quarshie / Roundabout",
+        "official_status": "unofficial",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4972315121,
+      "lat": 5.6536077,
+      "lon": -0.1807077,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Legon First",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4972575680,
+      "lat": 5.6560636,
+      "lon": -0.1801477,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Power House",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4972695858,
+      "lat": 5.6672969,
+      "lon": -0.18729,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2022-01-01",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Agbogba Junction",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4972894711,
+      "lat": 5.5739276,
+      "lon": -0.2787566,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Mallam Market",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4974193122,
+      "lat": 5.5980107,
+      "lon": -0.1795113,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Opeibea First",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4974193123,
+      "lat": 5.587623,
+      "lon": -0.1831067,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2025-03-22",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "37 Hospital",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4974193124,
+      "lat": 5.5707147,
+      "lon": -0.1912352,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Immigration",
+        "public_transport": "platform",
+        "shelter": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4974193125,
+      "lat": 5.5605037,
+      "lon": -0.1966274,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2025-03-22",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Ridge",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4974194650,
+      "lat": 5.6160691,
+      "lon": -0.1760971,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Shangrila",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4974195501,
+      "lat": 5.5734253,
+      "lon": -0.1894351,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "check_date:shelter": "2025-03-22",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Sankara",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "wheelchair": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4974195502,
+      "lat": 5.5879146,
+      "lon": -0.1826114,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2023-02-17",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "37 Hospital",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4977880923,
+      "lat": 5.5919333,
+      "lon": -0.1806082,
+      "tags": {
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "check_date:shelter": "2022-03-27",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "License Office",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4977886631,
+      "lat": 5.6007053,
+      "lon": -0.1786398,
+      "tags": {
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "check_date:shelter": "2022-03-27",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Opeibea Second",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4977897982,
+      "lat": 5.5963571,
+      "lon": -0.1796072,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Opeibea First",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4977925525,
+      "lat": 5.6171912,
+      "lon": -0.1759131,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Shangrila",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4977927743,
+      "lat": 5.6041926,
+      "lon": -0.1781224,
+      "tags": {
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2022-04-10",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Airport Second",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4977985923,
+      "lat": 5.667379,
+      "lon": -0.1880947,
+      "tags": {
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "check_date:shelter": "2022-01-01",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Agbogba Junction",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4979349924,
+      "lat": 5.5361606,
+      "lon": -0.2264147,
+      "tags": {
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "Korle Bu",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4979371653,
+      "lat": 5.6142814,
+      "lon": -0.0718845,
+      "tags": {
+        "bench": "no",
+        "highway": "bus_stop",
+        "name": "Junction Mall",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4979396673,
+      "lat": 5.5361206,
+      "lon": -0.2270517,
+      "tags": {
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "Korle Bu",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841285,
+      "lat": 5.6072824,
+      "lon": -0.2481677,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Abeka Lapaz",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841287,
+      "lat": 5.6082043,
+      "lon": -0.245219,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nii Boi Town Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841288,
+      "lat": 5.6087099,
+      "lon": -0.2423735,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Bambolino",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841289,
+      "lat": 5.6090177,
+      "lon": -0.24051,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Lapaz Market",
+        "note": "Might also be called ashawo market",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841290,
+      "lat": 5.6095454,
+      "lon": -0.2380849,
+      "tags": {
+        "alt_name": "Overhead",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Flat Top",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841291,
+      "lat": 5.6115673,
+      "lon": -0.2313117,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Akweteyman",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841293,
+      "lat": 5.6132664,
+      "lon": -0.2255395,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "check_date:shelter": "2022-04-29",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Achimota Overhead",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841295,
+      "lat": 5.6099334,
+      "lon": -0.2109196,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Abelenkpe Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841296,
+      "lat": 5.6073118,
+      "lon": -0.2070102,
+      "tags": {
+        "bench": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Dzorwulu Junction",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841297,
+      "lat": 5.6051616,
+      "lon": -0.2036896,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Ebony",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841298,
+      "lat": 5.6029353,
+      "lon": -0.2003114,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Roman Ridge",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841299,
+      "lat": 5.5938393,
+      "lon": -0.1861639,
+      "tags": {
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Culture",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980841300,
+      "lat": 5.5888594,
+      "lon": -0.179598,
+      "tags": {
+        "bench": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "37",
+        "public_transport": "platform",
+        "shelter": "no",
+        "source": "survey july 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974730,
+      "lat": 5.5436043,
+      "lon": -0.2399263,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Korle Bu Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974731,
+      "lat": 5.5640961,
+      "lon": -0.2358676,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Kaneshie",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974733,
+      "lat": 5.5632117,
+      "lon": -0.2376365,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Dansoman Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974734,
+      "lat": 5.561402,
+      "lon": -0.2387208,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Asoredan ho",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974735,
+      "lat": 5.5577934,
+      "lon": -0.2397888,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Zongo Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974736,
+      "lat": 5.5562747,
+      "lon": -0.2401432,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Kasoa Station",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974737,
+      "lat": 5.5535038,
+      "lon": -0.2401289,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Pipeier Naa",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974738,
+      "lat": 5.5511073,
+      "lon": -0.2401201,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Black Smith",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974739,
+      "lat": 5.5480701,
+      "lon": -0.2401327,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Radio Gold",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974741,
+      "lat": 5.5409656,
+      "lon": -0.2392821,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Salvation Army",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974742,
+      "lat": 5.5386027,
+      "lon": -0.2387178,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sempe Second",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974743,
+      "lat": 5.5370014,
+      "lon": -0.2383399,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sempe First",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974744,
+      "lat": 5.5346741,
+      "lon": -0.2377661,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Mamprobi Station",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974745,
+      "lat": 5.5329887,
+      "lon": -0.2373437,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Shell",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974746,
+      "lat": 5.5321588,
+      "lon": -0.237237,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Market Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974747,
+      "lat": 5.5318853,
+      "lon": -0.2352626,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Market",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974748,
+      "lat": 5.5312256,
+      "lon": -0.2322283,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Shalom",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974749,
+      "lat": 5.531474,
+      "lon": -0.232268,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Asoredan ho",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974751,
+      "lat": 5.5308527,
+      "lon": -0.2370484,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Banku Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974752,
+      "lat": 5.5283443,
+      "lon": -0.2365225,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "White House",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974753,
+      "lat": 5.5391036,
+      "lon": -0.2389032,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sempe First",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974754,
+      "lat": 5.5529372,
+      "lon": -0.2402048,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Pipeier Naa",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974757,
+      "lat": 5.5486332,
+      "lon": -0.2402106,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Radio Gold",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974758,
+      "lat": 5.5342555,
+      "lon": -0.2377406,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Mamprobi Station",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974759,
+      "lat": 5.5320138,
+      "lon": -0.237275,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Market",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974760,
+      "lat": 5.5416466,
+      "lon": -0.2395311,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Salvation Army",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974761,
+      "lat": 5.5575568,
+      "lon": -0.2399215,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Zongo Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974762,
+      "lat": 5.5295993,
+      "lon": -0.2367828,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Duanase",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974763,
+      "lat": 5.5280014,
+      "lon": -0.2342577,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Hotel Junction",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974764,
+      "lat": 5.5367773,
+      "lon": -0.2383532,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Sempe Second",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4980974765,
+      "lat": 5.5508347,
+      "lon": -0.2402081,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Black Smith",
+        "public_transport": "platform",
+        "source": "survey summer 2017 - AccraMobile3 project"
+      }
+    }
+  ]
