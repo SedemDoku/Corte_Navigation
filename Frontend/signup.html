@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up | Corte Navigation</title>
+
+  <!-- external CSS file -->
+  <link rel="stylesheet" href="signup.css">
+
+</head>
+
+<body>
+
+  <div class="signup-container">
+    <div class="auth-card">
+      <h2>Create Account</h2>
+      <p>Join Corte Navigation today</p>
+
+      <input id="su_username" placeholder="Username" />
+      <input id="su_password" type="password" placeholder="Password" />
+      <input id="su_confirm" type="password" placeholder="Confirm Password" />
+
+      <button class="primary-btn" id="signupBtn">Sign up</button>
+
+      <div id="error"></div>
+
+      <div class="meta">
+        Already have an account? <a href="login.html">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="corteAuth.js"></script>
+  <script src="auth.js"></script>
+
+  <script>
+    document.getElementById("signupBtn").addEventListener("click", () => {
+      const u = document.getElementById("su_username").value.trim();
+      const p = document.getElementById("su_password").value;
+      const c = document.getElementById("su_confirm").value;
+      const err = document.getElementById("error");
+      err.textContent = "";
+
+      if (!u) return err.textContent = "Enter a username";
+      if (p.length < 4) return err.textContent = "Password must be at least 4 characters";
+      if (p !== c) return err.textContent = "Passwords do not match";
+
+      const users = CorteAuth.getUsers();
+      if (users[u]) return err.textContent = "Username already taken";
+
+      users[u] = { password: p, createdAt: new Date().toISOString() };
+      CorteAuth.saveUsers(users);
+
+      localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("currentUser", u);
+
+      window.location.href = "home.html";
+    });
+  </script>
+
+</body>
+</html>

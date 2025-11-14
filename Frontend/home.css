@@ -1,0 +1,118 @@
+/* General page styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Header (Navigation bar) */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0047ab;
+  color: white;
+  padding: 15px 40px;
+}
+
+.logo span {
+  color: #f4c430;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a.active {
+  border-bottom: 2px solid #f4c430;
+}
+
+/* Hero section */
+.hero {
+  background: url('C:/Users/kethi/Downloads/Local_Bus_Station_at_Circle.jpg') center/cover no-repeat;
+  color: white;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #f4c430;
+  color: #0047ab;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffd75f;
+}
+
+/* Features section */
+.features {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.feature-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.feature {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  width: 250px;
+  padding: 20px;
+}
+
+.feature h4 {
+  color: #0047ab;
+}
+
+/* Footer */
+footer {
+  background-color: #0047ab;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}

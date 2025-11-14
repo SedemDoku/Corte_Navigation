@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Corte Navigation</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="login.css">
+  
+</head>
+
+<body>
+
+  <div class="login-container">
+    <div class="auth-card">
+      <h2>Login</h2>
+      <p>Welcome back</p>
+
+      <input id="username" placeholder="Username" />
+      <input id="password" type="password" placeholder="Password" />
+      <button class="primary-btn" id="loginBtn">Login</button>
+
+      <div id="error"></div>
+
+      <div class="meta">
+        Not a member? <a href="signup.html">Create account</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="corteAuth.js"></script>
+  <script src="auth.js"></script>
+
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const user = document.getElementById("username").value.trim();
+      const pass = document.getElementById("password").value;
+
+      if (!user || !pass) {
+        document.getElementById("error").textContent = "Enter username and password";
+        return;
+      }
+
+      const users = CorteAuth.getUsers();
+
+      if (users[user] && users[user].password === pass) {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("currentUser", user);
+        window.location.href = "dashboard.html";
+        return;
+      }
+
+      if (user === "admin" && pass === "1234") {
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("currentUser", "admin");
+        window.location.href = "dashboard.html";
+        return;
+      }
+
+      document.getElementById("error").textContent = "Invalid username or password";
+    });
+  </script>
+
+</body>
+</html>

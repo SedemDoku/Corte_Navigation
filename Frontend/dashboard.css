@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  background-color: #0047ab;
+  padding: 15px 40px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.logo span {
+  color: #f4c430;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a.active {
+  border-bottom: 2px solid #f4c430;
+}
+
+.search-section {
+  padding: 30px;
+  text-align: center;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-box input {
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #0047ab;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+}
+
+button:hover {
+  background-color: #003b8c;
+}
+
+#errorMsg {
+  color: red;
+}
+
+.map-section {
+  margin: 20px;
+}
+
+footer {
+  text-align: center;
+  background-color: #0047ab;
+  padding: 15px;
+  color: white;
+}
