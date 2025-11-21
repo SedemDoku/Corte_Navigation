@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Corte Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset & Layout */
+    body { margin: 0; font-family: 'Roboto', sans-serif; display: flex; height: 100vh; overflow: hidden; }
+    
+    /* Sidebar */
+    .sidebar { width: 70px; background: white; border-right: 1px solid #ddd; display: flex; flex-direction: column; align-items: center; padding-top: 20px; z-index: 2; }
+    .nav-item { margin-bottom: 20px; cursor: pointer; color: #5f6368; text-align: center; font-size: 0.7rem; border:none; background:none;}
+    .nav-item svg { width: 24px; height: 24px; display:block; margin: 0 auto 5px auto; fill: currentColor; }
+    .nav-item:hover { color: #0047ab; }
+
+    /* Floating Panel */
+    .search-panel { position: absolute; top: 10px; left: 80px; width: 380px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); z-index: 5; padding: 20px; }
+    .logo { color: #0047ab; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; }
+    .logo span { color: #f4c430; }
+    
+    input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    button { width: 100%; padding: 10px; background: #0047ab; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    button:hover { background: #00388b; }
+
+    #instructions { margin-top: 15px; max-height: 300px; overflow-y: auto; font-size: 0.9rem; }
+    .leg-card { background: #f8f9fa; border-left: 4px solid #0047ab; padding: 10px; margin-bottom: 8px; }
+
+    /* Map */
+    #map { flex-grow: 1; height: 100%; }
+  </style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <button class="nav-item" onclick="window.location.href='home.html'">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Home
+    </button>
+    <button class="nav-item">
+      <svg viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg> Saved
+    </button>
+  </aside>
+
+  <div class="search-panel">
+    <div class="logo">Corte<span>Navigation</span></div>
+    <input id="start" placeholder="Start Point (e.g. Mile 11)">
+    <input id="end" placeholder="Destination (e.g. 37 Hospital)">
+    <button id="searchBtn">Find Route</button>
+    <div id="errorMsg" style="color:red; margin-top:10px; font-size:0.8rem;"></div>
+    <div id="instructions"></div>
+  </div>
+
+  <div id="map"></div>
+
+  <script>
+    let map, geocoder, currentPolyline;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: { lat: 5.6037, lng: -0.1870 }, // Accra
+        disableDefaultUI: false
+      });
+      geocoder = new google.maps.Geocoder();
+    }
+
+    function getCoordinates(address) {
+      return new Promise((resolve, reject) => {
+        geocoder.geocode({ address: address + ", Ghana" }, (results, status) => {
+          if (status === "OK" && results[0]) {
+            const loc = results[0].geometry.location;
+            resolve({ lat: loc.lat(), lng: loc.lng() });
+          } else {
+            reject("Location not found: " + address);
+          }
+        });
+      });
+    }
+
+    document.getElementById("searchBtn").addEventListener("click", async () => {
+      const startTxt = document.getElementById("start").value;
+      const endTxt = document.getElementById("end").value;
+      const errorDiv = document.getElementById("errorMsg");
+      const instructDiv = document.getElementById("instructions");
+      
+      errorDiv.textContent = "Locating...";
+      instructDiv.innerHTML = "";
+      if(currentPolyline) currentPolyline.setMap(null);
+
+      try {
+        // 1. Geocode
+        const [startCoords, endCoords] = await Promise.all([
+           getCoordinates(startTxt), getCoordinates(endTxt)
+        ]);
+
+        // 2. Call PHP API
+        errorDiv.textContent = "Calculating Route...";
+        const response = await fetch('api.php', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            startLat: startCoords.lat, startLon: startCoords.lng,
+            endLat: endCoords.lat, endLon: endCoords.lng
+          })
+        });
+
+        const data = await response.json();
+        errorDiv.textContent = "";
+
+        if(data.error || (data.result && data.result.error)) {
+           errorDiv.textContent = data.error || data.result.error;
+           return;
+        }
+
+        // 3. Visualize
+        const route = data.result;
+        
+        // Display Instructions
+        if(route.type === "Direct") {
+            const leg = route.legs[0];
+            instructDiv.innerHTML = `<div class="leg-card"><strong>Direct Bus:</strong><br>${leg.route_name}<br><small>${leg.stops.length} stops</small></div>`;
+            
+            // Draw Line
+            const path = leg.stops.map(s => ({lat: s.lat, lng: s.lon}));
+            currentPolyline = new google.maps.Polyline({
+              path: path,
+              geodesic: true,
+              strokeColor: "#0047ab",
+              strokeOpacity: 1.0,
+              strokeWeight: 5,
+              map: map
+            });
+
+            // Zoom to fit
+            const bounds = new google.maps.LatLngBounds();
+            path.forEach(p => bounds.extend(p));
+            map.fitBounds(bounds);
+
+        } else {
+            // Indirect
+            let html = "<h4>Multiple Buses Needed:</h4>";
+            route.legs.forEach((leg, idx) => {
+                html += `<div class="leg-card"><strong>Bus ${idx+1}:</strong> ${leg.route_name}</div>`;
+            });
+            instructDiv.innerHTML = html;
+            alert("Indirect route found. Transfer details displayed in panel.");
+        }
+
+      } catch (e) {
+        console.error(e);
+        errorDiv.textContent = "Error: " + e;
+      }
+    });
+  </script>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmF3jeRV9rWZTUEWXtusYzm95WNJnBNZc&callback=initMap&loading=async" async defer></script>
+</body>
+</html>

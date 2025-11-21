@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Corte</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-bg">
+  <div class="auth-card">
+    <h2>Welcome Back</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <div id="errorMsg" class="error"></div>
+    <p class="meta">New here? <a href="signup.html">Create account</a></p>
+  </div>
+
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const error = document.getElementById("errorMsg");
+
+      try {
+        const res = await fetch('login.php', {
+          method: 'POST',
+          body: JSON.stringify({ username: user, password: pass })
+        });
+        const data = await res.json();
+
+        if (data.status === "success") {
+          // Save session to browser
+          localStorage.setItem("currentUser", data.username);
+          localStorage.setItem("userId", data.user_id);
+          window.location.href = "dashboard.html";
+        } else {
+          error.textContent = data.message;
+        }
+      } catch (err) {
+        error.textContent = "Server connection failed.";
+      }
+    });
+  </script>
+</body>
+</html>

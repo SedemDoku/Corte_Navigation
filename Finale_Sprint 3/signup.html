@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up | Corte</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-bg">
+  <div class="auth-card">
+    <h2>Create Account</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="signupBtn">Sign Up</button>
+    <div id="errorMsg" class="error"></div>
+    <p class="meta">Already have an account? <a href="login.html">Login</a></p>
+  </div>
+
+  <script>
+    document.getElementById("signupBtn").addEventListener("click", async () => {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const error = document.getElementById("errorMsg");
+
+      try {
+        const res = await fetch('signup.php', {
+          method: 'POST',
+          body: JSON.stringify({ username: user, password: pass })
+        });
+        const data = await res.json();
+
+        if (data.status === "success") {
+          alert("Account created! Please login.");
+          window.location.href = "login.html";
+        } else {
+          error.textContent = data.message;
+        }
+      } catch (err) {
+        error.textContent = "Server connection failed.";
+      }
+    });
+  </script>
+</body>
+</html>
