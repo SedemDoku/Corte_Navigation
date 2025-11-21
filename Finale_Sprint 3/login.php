@@ -1,5 +1,5 @@
 <?php
-// login.php - Verifies credentials
+
 header('Content-Type: application/json');
 require 'db_connect.php';
 
@@ -12,13 +12,13 @@ if (!$user || !$pass) {
     exit;
 }
 
-$stmt = $conn->prepare("SELECT id, password FROM users WHERE username = ?");
+$stmt = $conn->prepare("SELECT id, password FROM Corte_users WHERE username = ?");
 $stmt->bind_param("s", $user);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($row = $result->fetch_assoc()) {
-    // Verify hash
+
     if (password_verify($pass, $row['password'])) {
         echo json_encode([
             "status" => "success", 

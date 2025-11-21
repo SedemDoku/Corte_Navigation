@@ -6,16 +6,15 @@
   <title>Corte Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* Basic Reset & Layout */
+
     body { margin: 0; font-family: 'Roboto', sans-serif; display: flex; height: 100vh; overflow: hidden; }
     
-    /* Sidebar */
+
     .sidebar { width: 70px; background: white; border-right: 1px solid #ddd; display: flex; flex-direction: column; align-items: center; padding-top: 20px; z-index: 2; }
     .nav-item { margin-bottom: 20px; cursor: pointer; color: #5f6368; text-align: center; font-size: 0.7rem; border:none; background:none;}
     .nav-item svg { width: 24px; height: 24px; display:block; margin: 0 auto 5px auto; fill: currentColor; }
     .nav-item:hover { color: #0047ab; }
 
-    /* Floating Panel */
     .search-panel { position: absolute; top: 10px; left: 80px; width: 380px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); z-index: 5; padding: 20px; }
     .logo { color: #0047ab; font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; }
     .logo span { color: #f4c430; }
@@ -27,7 +26,7 @@
     #instructions { margin-top: 15px; max-height: 300px; overflow-y: auto; font-size: 0.9rem; }
     .leg-card { background: #f8f9fa; border-left: 4px solid #0047ab; padding: 10px; margin-bottom: 8px; }
 
-    /* Map */
+
     #map { flex-grow: 1; height: 100%; }
   </style>
 </head>
@@ -59,7 +58,7 @@
     function initMap() {
       map = new google.maps.Map(document.getElementById("map"), {
         zoom: 12,
-        center: { lat: 5.6037, lng: -0.1870 }, // Accra
+        center: { lat: 5.6037, lng: -0.1870 },
         disableDefaultUI: false
       });
       geocoder = new google.maps.Geocoder();
@@ -89,12 +88,11 @@
       if(currentPolyline) currentPolyline.setMap(null);
 
       try {
-        // 1. Geocode
+
         const [startCoords, endCoords] = await Promise.all([
            getCoordinates(startTxt), getCoordinates(endTxt)
         ]);
 
-        // 2. Call PHP API
         errorDiv.textContent = "Calculating Route...";
         const response = await fetch('api.php', {
           method: 'POST',
@@ -113,15 +111,15 @@
            return;
         }
 
-        // 3. Visualize
+
         const route = data.result;
         
-        // Display Instructions
+
         if(route.type === "Direct") {
             const leg = route.legs[0];
             instructDiv.innerHTML = `<div class="leg-card"><strong>Direct Bus:</strong><br>${leg.route_name}<br><small>${leg.stops.length} stops</small></div>`;
             
-            // Draw Line
+
             const path = leg.stops.map(s => ({lat: s.lat, lng: s.lon}));
             currentPolyline = new google.maps.Polyline({
               path: path,
@@ -132,13 +130,13 @@
               map: map
             });
 
-            // Zoom to fit
+
             const bounds = new google.maps.LatLngBounds();
             path.forEach(p => bounds.extend(p));
             map.fitBounds(bounds);
 
         } else {
-            // Indirect
+
             let html = "<h4>Multiple Buses Needed:</h4>";
             route.legs.forEach((leg, idx) => {
                 html += `<div class="leg-card"><strong>Bus ${idx+1}:</strong> ${leg.route_name}</div>`;

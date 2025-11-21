@@ -1,5 +1,5 @@
 <?php
-// signup.php - Registers a new user
+
 header('Content-Type: application/json');
 require 'db_connect.php'; //
 
@@ -12,8 +12,8 @@ if (!$user || !$pass) {
     exit;
 }
 
-// Check if user exists
-$check = $conn->prepare("SELECT id FROM users WHERE username = ?");
+
+$check = $conn->prepare("SELECT id FROM Corte_users WHERE username = ?");
 $check->bind_param("s", $user);
 $check->execute();
 if ($check->get_result()->num_rows > 0) {
@@ -21,9 +21,9 @@ if ($check->get_result()->num_rows > 0) {
     exit;
 }
 
-// Insert new user (Password Hashed)
+
 $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
-$stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+$stmt = $conn->prepare("INSERT INTO Corte_users (username, password) VALUES (?, ?)");
 $stmt->bind_param("ss", $user, $hashed_pass);
 
 if ($stmt->execute()) {

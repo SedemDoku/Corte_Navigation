@@ -29,7 +29,6 @@
         const data = await res.json();
 
         if (data.status === "success") {
-          // Save session to browser
           localStorage.setItem("currentUser", data.username);
           localStorage.setItem("userId", data.user_id);
           window.location.href = "dashboard.html";

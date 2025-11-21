@@ -148,18 +148,14 @@ class BusRouteFinder {
         $path = $this->bfsTransfers($startRoutes, $endRoutes);
         if ($path) {
             $result["type"] = "Indirect";
-            // Logic to stitch legs together
-            // Note: Simplified logic. In production, you must find the specific transfer stop ID between route A and B.
-            // For now, we will return the route names so the frontend can at least show instructions.
+
              $legs = [];
-             // NOTE: Implementing full geometry stitching for indirect routes requires 
-             // finding the specific intersection node between Route A and Route B. 
-             // For this prototype, we return the route metadata.
+
              foreach($path as $rid) {
                  $legs[] = [
                      "route_name" => $this->routeIdToRoute[$rid]["tags"]["name"] ?? "Route $rid",
                      "route_id" => $rid
-                     // To draw lines here, we would need the transfer Node IDs. 
+
                  ];
              }
              $result["legs"] = $legs;

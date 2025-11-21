@@ -1,14 +1,14 @@
-/* style.css */
+
 body { margin: 0; font-family: 'Roboto', sans-serif; color: #333; }
 
-/* Header */
+
 header { background: #0047ab; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; color: white; }
 .logo { font-size: 1.5rem; font-weight: bold; }
 .logo span { color: #f4c430; }
 nav a { color: white; text-decoration: none; margin-left: 20px; }
 .btn-highlight { background: #f4c430; color: #0047ab; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
 
-/* Auth Pages (Login/Signup) */
+
 .auth-bg {
     background: linear-gradient(135deg, #0047ab, #002a66);
     height: 100vh;
@@ -30,7 +30,7 @@ nav a { color: white; text-decoration: none; margin-left: 20px; }
 .error { color: red; font-size: 0.9rem; margin-top: 10px; }
 .meta { margin-top: 15px; font-size: 0.8rem; }
 
-/* Hero Section */
+
 .hero {
     height: 80vh;
     background: url('https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2071&auto=format&fit=crop') center/cover;
