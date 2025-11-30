@@ -20,7 +20,7 @@
         --shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
 
-    /* Basic Reset & Layout */
+
     body { 
         margin: 0; 
         font-family: 'Inter', sans-serif; 
@@ -226,7 +226,7 @@
     .leg-details { color: var(--text-muted); font-size: 0.85rem; }
     .leg-meta { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 0.8rem; color: var(--text-muted); }
     .badge { background: rgba(0,122,252,0.2); color: var(--primary); padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;}
-    .badge.transfer { background: rgba(255,165,0,0.2); color: #ffa500; } /* Orange for transfer */
+    .badge.transfer { background: rgba(255,165,0,0.2); color: #ffa500; }
 
     /* Map */
     #map { flex-grow: 1; height: 100%; }
@@ -291,9 +291,7 @@
 
   <script>
     let map, geocoder, currentPolyline, currentRouteData = null;
-    let markers = []; // Array to hold all markers
-
-    // Custom Dark Theme for Google Maps to match the UI
+    let markers = [];
     const mapStyles = [
       { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
       { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
@@ -320,7 +318,7 @@
         zoom: 13,
         center: { lat: 5.6037, lng: -0.1870 }, // Accra Center
         disableDefaultUI: false,
-        styles: mapStyles, // Apply dark theme
+        styles: mapStyles,
         mapTypeControl: false,
         streetViewControl: false
       });
@@ -349,7 +347,7 @@
             end_lng: currentRouteData.end.lng,
             route_data: currentRouteData
           }),
-          credentials: 'same-origin' // Include cookies for session
+          credentials: 'same-origin'
         });
         
         const result = await response.json();

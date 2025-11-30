@@ -2,16 +2,15 @@
 require 'db_connect.php';
 require 'authentication.php';
 
-// Only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405); // Method Not Allowed
+    http_response_code(405); 
     echo json_encode(['status' => 'error', 'message' => 'Only POST method is allowed']);
     exit;
 }
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    http_response_code(401); // Unauthorized
+    http_response_code(401); 
     echo json_encode(['status' => 'error', 'message' => 'You must be logged in to save routes']);
     exit;
 }
@@ -23,13 +22,11 @@ $input = json_decode(file_get_contents('php://input'), true);
 $required_fields = ['start_lat', 'start_lng', 'end_lat', 'end_lng', 'route_data', 'route_name'];
 foreach ($required_fields as $field) {
     if (!isset($input[$field]) || empty($input[$field])) {
-        http_response_code(400); // Bad Request
+        http_response_code(400); 
         echo json_encode(['status' => 'error', 'message' => "Missing required field: $field"]);
         exit;
     }
 }
-
-// Sanitize inputs
 $user_id = $_SESSION['user_id'];
 $route_name = $conn->real_escape_string(trim($input['route_name']));
 $start_lat = (float)$input['start_lat'];
@@ -54,7 +51,7 @@ if ($stmt->execute()) {
         'route_id' => $route_id
     ]);
 } else {
-    http_response_code(500); // Internal Server Error
+    http_response_code(500); 
     echo json_encode([
         'status' => 'error', 
         'message' => 'Failed to save route',

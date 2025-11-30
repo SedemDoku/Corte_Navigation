@@ -3,10 +3,10 @@ require 'db_connect.php';
 
 // Start session securely
 if (session_status() === PHP_SESSION_NONE) {
-    // Detect if we're on HTTPS so the secure cookie flag works in production
+
     $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
 
-    // Use Lax by default so redirects from the login form work on localhost/HTTP
+
     session_set_cookie_params([
         'lifetime' => 0,
         'path' => '/',
@@ -26,7 +26,7 @@ if (!isset($_SESSION['created'])) {
     $_SESSION['created'] = time();
 }
 
-// --- Auto-login using remember-me cookie if session is missing ---
+
 if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_token'])) {
     $token = $_COOKIE['remember_token'];
     $token_hash = hash("sha256", $token);
@@ -38,7 +38,7 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_token'])) {
     $result = $stmt->get_result();
 
     if ($row = $result->fetch_assoc()) {
-        // Auto-login successful
+
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['username'] = $row['username'];
 
@@ -49,20 +49,19 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_token'])) {
 
         $_SESSION['login_time'] = time();
     } else {
-        // Invalid token → delete cookie
-        // Respect secure flag used during session cookie setup when removing cookie
+
         $secureFlag = isset($isSecure) ? $isSecure : false;
         setcookie("remember_token", "", time() - 3600, "/", "", $secureFlag, true);
     }
     $stmt->close();
 }
 
-// Check if user is logged in (optional helper function)
+
 function is_logged_in() {
     return isset($_SESSION['user_id']);
 }
 
-// Check if user is admin (optional helper function)
+
 function is_admin() {
     if (isset($_SESSION['is_admin'])) {
         return !empty($_SESSION['is_admin']);

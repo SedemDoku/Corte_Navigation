@@ -53,7 +53,7 @@ class BusRouteFinder {
             $count = count($routes);
             for ($i = 0; $i < $count; $i++) {
                 for ($j = $i + 1; $j < $count; $j++) {
-                    // Use a set-like structure (associative array) for adjacency
+    
                     $this->routeAdjGraph[$routes[$i]][$routes[$j]] = true;
                     $this->routeAdjGraph[$routes[$j]][$routes[$i]] = true;
                 }
@@ -141,11 +141,9 @@ class BusRouteFinder {
         return [$bestRouteId, $minDistance];
     }
     
-    /**
-     * Finds all paths with minimum transfers, then selects the one with shortest distance.
-     */
+
     private function findShortestDistancePath(int $startStopId, int $endStopId, array $startRouteSet, array $endRouteSet): array {
-        // PHP's SplQueue is good for BFS
+  
         $queue = new SplQueue();
         $visited = [];
         $minTransfers = INF;
@@ -163,7 +161,7 @@ class BusRouteFinder {
 
             if ($transfers > $minTransfers) continue;
             
-            // GOAL: Have we reached a route connected to the end stop?
+         
             if (in_array($currentRoute, $endRouteSet)) {
                 if ($transfers < $minTransfers) {
                     $minTransfers = $transfers;
@@ -228,7 +226,7 @@ class BusRouteFinder {
                     $nextStopId = $bestTransferStop;
                 }
                 
-                // Add this segment's distance
+     
                 $segmentDistance = $this->calculateRouteDistance($routeId, $currentStopId, $nextStopId);
                 $totalDistance += $segmentDistance;
                 $currentStopId = $nextStopId;

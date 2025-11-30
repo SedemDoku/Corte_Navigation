@@ -41,11 +41,11 @@ $route_data = json_decode($route['route_data'], true);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php echo htmlspecialchars($route['route_name']); ?> | Saved Route</title>
 
-<!-- Fonts & Icons -->
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-<!-- Leaflet -->
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
 <style>
@@ -61,7 +61,7 @@ $route_data = json_decode($route['route_data'], true);
     --shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-/* Reset & layout */
+
 body { margin:0; font-family:'Inter',sans-serif; display:flex; height:100vh; overflow:hidden; background-color: var(--bg-dark); color: var(--text-main); }
 .sidebar { width:64px; background: var(--bg-panel); border-right:1px solid var(--border); display:flex; flex-direction:column; align-items:center; padding-top:24px; z-index:10; }
 .nav-item { width:40px; height:40px; margin-bottom:16px; cursor:pointer; color: var(--text-muted); border:none; background:transparent; border-radius:10px; transition: all 0.2s ease; display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
@@ -70,7 +70,7 @@ body { margin:0; font-family:'Inter',sans-serif; display:flex; height:100vh; ove
 .nav-spacer { flex-grow:1; }
 .profile-icon { width:32px; height:32px; background: var(--primary); border-radius:50%; margin-bottom:24px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:bold; }
 
-/* Floating panel */
+
 .search-panel { position:absolute; top:20px; left:84px; width:360px; background: var(--bg-panel); border:1px solid var(--border); border-radius:12px; box-shadow: var(--shadow); z-index:5; padding:24px; display:flex; flex-direction:column; gap:12px; overflow-y:auto; max-height:90vh; }
 .logo { color: var(--text-main); font-weight:700; font-size:1.1rem; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
 .logo span { color: var(--primary); }
@@ -79,16 +79,15 @@ body { margin:0; font-family:'Inter',sans-serif; display:flex; height:100vh; ove
 input { width:100%; padding:12px 12px 12px 36px; background: var(--bg-input); border:1px solid var(--border); border-radius:8px; box-sizing:border-box; color: var(--text-main); font-family:inherit; font-size:0.9rem; transition:border-color 0.2s; }
 input:focus { outline:none; border-color: var(--primary); }
 
-/* Map */
+
 #map { flex-grow:1; height:100%; }
 
-/* Instructions */
 #instructions { margin-top:10px; max-height:500px; overflow-y:auto; font-size:0.9rem; padding-right:5px; }
 #instructions::-webkit-scrollbar { width:6px; }
 #instructions::-webkit-scrollbar-track { background: var(--bg-dark); }
 #instructions::-webkit-scrollbar-thumb { background: var(--border); border-radius:3px; }
 
-/* Route cards */
+
 .leg-card { background: var(--bg-dark); border:1px solid var(--border); border-left:4px solid var(--primary); border-radius:6px; padding:12px 16px; margin-bottom:10px; }
 .leg-header { font-weight:600; color: var(--text-main); margin-bottom:4px; display:block; }
 .leg-details { color: var(--text-muted); font-size:0.85rem; }
@@ -125,7 +124,7 @@ input:focus { outline:none; border-color: var(--primary); }
 <script>
     const map = L.map('map').setView([<?php echo $route['start_lat']; ?>, <?php echo $route['start_lng']; ?>], 13);
 
-    // Dark tiles
+ 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap contributors',
         subdomains: 'abcd',

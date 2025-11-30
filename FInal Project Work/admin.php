@@ -1,9 +1,8 @@
 <?php
 session_start();
 require 'db_connect.php';
-/* winifred.arthur */
-// Check if user is admin - verify credentials against database
-require 'authentication.php'; // ensures session started and auto-login handled
+
+require 'authentication.php'; 
 
 // Check if user is logged in
 if (!is_logged_in() || !is_admin()) {
@@ -17,7 +16,7 @@ if (!is_logged_in() || !is_admin()) {
 if (isset($_GET['delete_user'])) {
     $user_id = intval($_GET['delete_user']);
     
-    // *Prevent admin from deleting themselves*
+    // Prevent admin from deleting themselves
     if ($user_id == $_SESSION['user_id']) {
         $_SESSION['error'] = "Cannot delete your own admin account";
     } else {
@@ -37,7 +36,7 @@ if (isset($_GET['delete_user'])) {
 if (isset($_GET['toggle_admin'])) {
     $user_id = intval($_GET['toggle_admin']);
     
-    // *Prevent admin from demoting themselves*
+    // Prevent admin from demoting themselves
     if ($user_id == $_SESSION['user_id']) {
         $_SESSION['error'] = "Cannot remove admin rights from yourself";
     } else {
@@ -62,14 +61,14 @@ $total_routes = 0;
 $recent_users = 0;
 $admin_count = 0;
 
-// *Count total users*
+// Count total users
 $result = $conn->query("SELECT COUNT(*) as count FROM users");
 if ($result) {
     $row = $result->fetch_assoc();
     $total_users = $row['count'];
 }
 
-// *Count saved routes - assuming saved_routes table exists*
+// Count saved routes - assuming saved_routes table exists
 $result = $conn->query("SELECT COUNT(*) as count FROM saved_routes");
 if ($result) {
     $row = $result->fetch_assoc();

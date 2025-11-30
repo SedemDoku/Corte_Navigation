@@ -1,0 +1,6 @@
+Host Server
+http://169.239.251.102:341/~rose.mpawenayo/uploads/home.html
+
+
+Repo
+https://github.com/SedemDoku/Corte_Navigation

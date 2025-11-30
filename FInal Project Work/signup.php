@@ -9,9 +9,7 @@ $username = trim($input['username'] ?? '');
 $email    = trim($input['email'] ?? '');
 $pass     = trim($input['password'] ?? '');
 
-/* ----------------------------------------------------------
-   1. BASIC VALIDATION
------------------------------------------------------------*/
+
 if (!$username || !$email || !$pass) {
     echo json_encode([
         "status" => "error",
@@ -33,9 +31,7 @@ if (strlen($pass) < 8) {
     exit;
 }
 
-/* ----------------------------------------------------------
-   2. CHECK IF EMAIL ALREADY EXISTS
------------------------------------------------------------*/
+
 $checkEmail = $conn->prepare("SELECT id FROM users WHERE email = ?");
 $checkEmail->bind_param("s", $email);
 $checkEmail->execute();
@@ -48,9 +44,7 @@ if ($resultEmail->num_rows > 0) {
 }
 $checkEmail->close();
 
-/* ----------------------------------------------------------
-   3. CHECK IF USERNAME ALREADY EXISTS
------------------------------------------------------------*/
+
 $checkUser = $conn->prepare("SELECT id FROM users WHERE username = ?");
 $checkUser->bind_param("s", $username);
 $checkUser->execute();
@@ -63,9 +57,6 @@ if ($resultUser->num_rows > 0) {
 }
 $checkUser->close();
 
-/* ----------------------------------------------------------
-   4. INSERT USER (HASHED PASSWORD)
------------------------------------------------------------*/
 $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
 
 $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");

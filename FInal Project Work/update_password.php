@@ -1,5 +1,5 @@
 <?php
-// update_password.php
+
 header('Content-Type: application/json');
 require 'db_connect.php';
 

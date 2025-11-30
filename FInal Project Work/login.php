@@ -1,20 +1,20 @@
 <?php
 header('Content-Type: application/json');
 
-// Load secure session + auto-login handler
+
 require 'authentication.php';
 
-// Database connection
+
 require_once 'db_connect.php';
 
-// Read JSON input
+
 $input = json_decode(file_get_contents("php://input"), true);
 
 $email = trim($input['email'] ?? '');
 $password = trim($input['password'] ?? '');
 $remember = $input['remember'] ?? false;
 
-// --- Basic validation ---
+
 if (!$email || !$password) {
     echo json_encode([
         "status" => "error",
@@ -31,7 +31,6 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// --- 1. Get user by email ---
 $stmt = $conn->prepare("
     SELECT id, username, email, password, role 
     FROM users 
@@ -50,7 +49,7 @@ if (!$user = $result->fetch_assoc()) {
     exit;
 }
 
-// --- 2. Verify password ---
+  
 if (!password_verify($password, $user['password'])) {
     echo json_encode([
         "status" => "error",
@@ -59,8 +58,6 @@ if (!password_verify($password, $user['password'])) {
     exit;
 }
 
-// --- 3. Login successful → Set session variables ---
-// role column is boolean: 1 => admin, 0 => user
 $_SESSION['user_id'] = $user['id'];
 $_SESSION['username'] = $user['username'];
 $_SESSION['email'] = $user['email'];
@@ -79,8 +76,7 @@ $response = [
 ];
 
 
-// --- 4. Handle "Remember Me" ---
-// Determine if the connection is secure so remember cookie security is set accordingly
+
 $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
 
 if ($remember) {
