@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Log in | Corte Navigation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+        --bg-dark: #0e1012;
+        --bg-card: #17191c;
+        --bg-input: #23262b;
+        --text-main: #ffffff;
+        --text-muted: #9ca3af;
+        --primary: #007afc;
+        --primary-hover: #0062ca;
+        --border: #2b2f36;
+        --error: #ef4444;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Abstract Map Background Pattern */
+    .bg-pattern {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: 
+            linear-gradient(var(--bg-dark) 2px, transparent 2px),
+            linear-gradient(90deg, var(--bg-dark) 2px, transparent 2px),
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 40px 40px, 40px 40px;
+        z-index: -1;
+    }
+
+    .auth-card {
+        width: 100%;
+        max-width: 400px;
+        padding: 40px;
+        background: rgba(23, 25, 28, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 32px;
+        color: var(--text-main);
+    }
+    .logo i { color: var(--primary); }
+    .logo span { color: var(--primary); }
+
+    h2 {
+        margin-bottom: 8px;
+        font-size: 1.5rem;
+        letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+    }
+
+    .input-group {
+        position: relative;
+        margin-bottom: 16px;
+        text-align: left;
+    }
+
+    .input-group i {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        pointer-events: none;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 12px 12px 40px;
+        background: var(--bg-input);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        color: var(--text-main);
+        font-size: 0.95rem;
+        transition: border-color 0.2s;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: var(--primary);
+    }
+
+    /* --- NEW STYLES FOR REMEMBER/FORGOT --- */
+    .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    .remember-me {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .remember-me input {
+        width: auto;
+        padding: 0;
+        margin: 0;
+        accent-color: var(--primary); /* Colors the checkbox blue */
+        cursor: pointer;
+    }
+
+    .forgot-link {
+        color: var(--text-muted);
+        transition: color 0.2s;
+    }
+    
+    .forgot-link:hover {
+        color: var(--primary);
+        text-decoration: underline;
+    }
+    /* -------------------------------------- */
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+    }
+
+    button:hover { background: var(--primary-hover); }
+    button:active { transform: scale(0.98); }
+
+    .meta {
+        margin-top: 24px;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+    }
+
+    a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .error {
+        color: var(--error);
+        font-size: 0.85rem;
+        margin-top: 12px;
+        min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-pattern"></div>
+
+  <div class="auth-card">
+    <div class="logo">
+        <i class="fa-solid fa-layer-group"></i> Corte<span>Navigation</span>
+    </div>
+    
+    <h2>Welcome back</h2>
+    <p class="subtitle">Please enter your details to sign in.</p>
+
+    <div class="input-group">
+        <i class="fa-regular fa-envelope"></i>
+        <input type="email" id="email" placeholder="name@gmail.com">
+    </div>
+
+    <div class="input-group">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" id="password" placeholder="Password">
+    </div>
+
+<!-- In the form-options section, change this line: -->
+<div class="form-options">
+    <label class="remember-me">
+        <input type="checkbox" id="rememberMe">
+        Remember me
+    </label>
+    <!-- FIXED: Changed from forgot_password.php to forgot_password.html -->
+    <a href="forgot_password.html" class="forgot-link">Forgot password?</a>
+</div>
+
+    <button id="loginBtn">Login</button>
+    
+    <div id="errorMsg" class="error"></div>
+
+    <p class="meta">
+        Don't have an account? <a href="signup.html">Sign up</a>
+    </p>
+  </div>
+
+  <script>
+    // 1. Check if email is remembered on page load
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedEmail = localStorage.getItem("corte_saved_email");
+        if (savedEmail) {
+            document.getElementById("email").value = savedEmail;
+            document.getElementById("rememberMe").checked = true;
+        }
+    });
+
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      const email = document.getElementById("email").value;
+      const pass = document.getElementById("password").value;
+      const remember = document.getElementById("rememberMe").checked;
+      const error = document.getElementById("errorMsg");
+      const btn = document.getElementById("loginBtn");
+
+      // Visual Validation
+      if(!email || !pass) {
+          error.textContent = "Please fill in all fields.";
+          return;
+      }
+
+      // Basic Email Format Check
+      if(!email.includes("@")) {
+          error.textContent = "Please enter a valid email address.";
+          return;
+      }
+
+      // Loading state
+      btn.textContent = "Signing in...";
+      btn.disabled = true;
+      error.textContent = "";
+
+      try {
+                const res = await fetch('login.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email, password: pass, remember: remember }) 
+        });
+        
+        const contentType = res.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("Server returned non-JSON response");
+        }
+
+        const data = await res.json();
+
+        if (data.status === "success") {
+          // Handle "Remember Me"
+          if (remember) {
+              localStorage.setItem("corte_saved_email", email);
+          } else {
+              localStorage.removeItem("corte_saved_email");
+          }
+
+          localStorage.setItem("currentUser", data.username);
+          localStorage.setItem("userId", data.user_id);
+
+          btn.style.background = "#10b981"; 
+          btn.textContent = "Success!";
+
+          // Role-based redirection
+          if (data.role === "admin") {
+              setTimeout(() => { window.location.href = "admin.php"; }, 500);
+          } else {
+              setTimeout(() => { window.location.href = "dashboard.html"; }, 500);
+          }
+
+        } else {
+          error.textContent = data.message || "Invalid credentials";
+          btn.textContent = "Login";
+          btn.disabled = false;
+        }
+      } catch (err) {
+        console.error(err);
+        error.textContent = "Connection failed. Please try again.";
+        btn.textContent = "Login";
+        btn.disabled = false;
+      }
+    });
+
+    document.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            document.getElementById('loginBtn').click();
+        }
+    });
+  </script>
+</body>
+</html>
