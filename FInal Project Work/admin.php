@@ -1,10 +1,12 @@
 <?php
+/* winifred.arthur */
+
 session_start();
 require 'db_connect.php';
 
 require 'authentication.php'; 
 
-// Check if user is logged in
+
 if (!is_logged_in() || !is_admin()) {
     $_SESSION['error'] = "Admin access required";
     header('Location: login.html');
@@ -12,11 +14,11 @@ if (!is_logged_in() || !is_admin()) {
 }
 
 
-// Handle user deletion
+
 if (isset($_GET['delete_user'])) {
     $user_id = intval($_GET['delete_user']);
     
-    // Prevent admin from deleting themselves
+    // *Prevent admin from deleting themselves*
     if ($user_id == $_SESSION['user_id']) {
         $_SESSION['error'] = "Cannot delete your own admin account";
     } else {
@@ -32,44 +34,46 @@ if (isset($_GET['delete_user'])) {
     exit;
 }
 
-// Handle admin promotion/demotion
+
 if (isset($_GET['toggle_admin'])) {
     $user_id = intval($_GET['toggle_admin']);
     
-    // Prevent admin from demoting themselves
+    // *Prevent admin from demoting themselves*
     if ($user_id == $_SESSION['user_id']) {
         $_SESSION['error'] = "Cannot remove admin rights from yourself";
     } else {
-        // Toggle boolean role (1 -> 0 or 0 -> 1)
-        $stmt = $conn->prepare("UPDATE users SET role = CASE WHEN role = 1 THEN 0 ELSE 1 END WHERE id = ?");
+
+        $stmt = $conn->prepare("UPDATE users SET role = CASE WHEN role = 'admin' THEN 'user' ELSE 'admin' END WHERE id = ?");
         $stmt->bind_param("i", $user_id);
+
         if ($stmt->execute()) {
             $res = $conn->query("SELECT role FROM users WHERE id = $user_id");
-            $roleAfter = ($res && $r = $res->fetch_assoc()) ? ($r['role'] ? 'admin' : 'user') : 'user';
+            $roleAfter = ($res && $r = $res->fetch_assoc()) ? $r['role'] : 'user';
             $_SESSION['message'] = "User admin status updated ({$roleAfter})";
         } else {
             $_SESSION['error'] = "Error updating user admin status";
         }
     }
+
     header('Location: admin.php');
     exit;
 }
 
-// Get statistics from database
+
 $total_users = 0;
 $total_routes = 0;
 $recent_users = 0;
 $admin_count = 0;
 
-// Count total users
+// *Count total users*
 $result = $conn->query("SELECT COUNT(*) as count FROM users");
 if ($result) {
     $row = $result->fetch_assoc();
     $total_users = $row['count'];
 }
 
-// Count saved routes - assuming saved_routes table exists
-$result = $conn->query("SELECT COUNT(*) as count FROM saved_routes");
+// *Count total routes*
+$result = $conn->query("SELECT COUNT(*) as count FROM route_results");
 if ($result) {
     $row = $result->fetch_assoc();
     $total_routes = $row['count'];
@@ -83,13 +87,13 @@ if ($result) {
 }
 
 // *Count admin users*
-$result = $conn->query("SELECT COUNT(*) as count FROM users WHERE role = 1");
+$result = $conn->query("SELECT COUNT(*) as count FROM users WHERE role = 'admin'");
 if ($result) {
     $row = $result->fetch_assoc();
     $admin_count = $row['count'];
 }
 
-// Get all users for management table (include role)
+// Get all users for management table 
 $users = [];
 $result = $conn->query("SELECT id, username, created_at, role FROM users ORDER BY created_at DESC");
 if ($result) {
@@ -487,11 +491,12 @@ if ($result) {
                                 ?>
                             </td>
                             <td>
-                                <?php if ($user['role']): ?>
+                               <?php if ($user['role'] === 'admin'): ?>
                                     <span class="badge badge-success">Admin</span>
                                 <?php else: ?>
                                     <span class="badge badge-warning">User</span>
                                 <?php endif; ?>
+
                             </td>
                             <td>
                                 <div class="action-group">

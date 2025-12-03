@@ -1,196 +1,171 @@
 <?php
-require 'authentication.php';
-require 'db_connect.php';
 
-// Redirect to login if not authenticated
+/* rose.mpawenayo*/
+
+require 'db_connect.php';
+require 'authentication.php';
+
+// Redirect if not logged in
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit();
 }
 
-// Check if route ID is provided
-if (!isset($_GET['id'])) {
-    header('Location: my_routes.php');
-    exit();
-}
+// Get route ID from URL
+$route_id = (int)($_GET['id'] ?? 0);
 
-$route_id = (int)$_GET['id'];
-$user_id = $_SESSION['user_id'];
-
-// Fetch the route details
-$stmt = $conn->prepare("SELECT * FROM saved_routes WHERE id = ? AND user_id = ?");
-$stmt->bind_param("ii", $route_id, $user_id);
+$stmt = $conn->prepare("SELECT json_data FROM route_results WHERE id = ? AND user_id = ?");
+$stmt->bind_param("ii", $route_id, $_SESSION['user_id']);
 $stmt->execute();
 $result = $stmt->get_result();
 $route = $result->fetch_assoc();
 $stmt->close();
 
-// If route not found or doesn't belong to user, redirect
 if (!$route) {
-    header('Location: my_routes.php');
-    exit();
+    die("Route not found or access denied.");
 }
 
-$route_data = json_decode($route['route_data'], true);
+$route_json = json_decode($route['json_data'], true);
+$route_result = $route_json['result']; 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?php echo htmlspecialchars($route['route_name']); ?> | Saved Route</title>
-
-
+<title>View Route - Corte Navigation</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-
 <style>
-:root {
-    --bg-dark: #0e1012;
-    --bg-panel: #17191c;
-    --bg-input: #23262b;
-    --text-main: #ffffff;
-    --text-muted: #9ca3af;
-    --primary: #007afc;
-    --primary-hover: #0062ca;
-    --border: #2b2f36;
-    --shadow: 0 4px 20px rgba(0,0,0,0.4);
-}
-
-
-body { margin:0; font-family:'Inter',sans-serif; display:flex; height:100vh; overflow:hidden; background-color: var(--bg-dark); color: var(--text-main); }
-.sidebar { width:64px; background: var(--bg-panel); border-right:1px solid var(--border); display:flex; flex-direction:column; align-items:center; padding-top:24px; z-index:10; }
-.nav-item { width:40px; height:40px; margin-bottom:16px; cursor:pointer; color: var(--text-muted); border:none; background:transparent; border-radius:10px; transition: all 0.2s ease; display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
-.nav-item:hover { background: var(--bg-input); color: var(--text-main); }
-.nav-item.active { background: rgba(0,122,252,0.15); color: var(--primary); }
-.nav-spacer { flex-grow:1; }
-.profile-icon { width:32px; height:32px; background: var(--primary); border-radius:50%; margin-bottom:24px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:bold; }
-
-
-.search-panel { position:absolute; top:20px; left:84px; width:360px; background: var(--bg-panel); border:1px solid var(--border); border-radius:12px; box-shadow: var(--shadow); z-index:5; padding:24px; display:flex; flex-direction:column; gap:12px; overflow-y:auto; max-height:90vh; }
-.logo { color: var(--text-main); font-weight:700; font-size:1.1rem; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
-.logo span { color: var(--primary); }
-.input-group { position:relative; }
-.input-icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); color: var(--text-muted); font-size:0.8rem; }
-input { width:100%; padding:12px 12px 12px 36px; background: var(--bg-input); border:1px solid var(--border); border-radius:8px; box-sizing:border-box; color: var(--text-main); font-family:inherit; font-size:0.9rem; transition:border-color 0.2s; }
-input:focus { outline:none; border-color: var(--primary); }
-
-
-#map { flex-grow:1; height:100%; }
-
-#instructions { margin-top:10px; max-height:500px; overflow-y:auto; font-size:0.9rem; padding-right:5px; }
-#instructions::-webkit-scrollbar { width:6px; }
-#instructions::-webkit-scrollbar-track { background: var(--bg-dark); }
-#instructions::-webkit-scrollbar-thumb { background: var(--border); border-radius:3px; }
-
-
-.leg-card { background: var(--bg-dark); border:1px solid var(--border); border-left:4px solid var(--primary); border-radius:6px; padding:12px 16px; margin-bottom:10px; }
-.leg-header { font-weight:600; color: var(--text-main); margin-bottom:4px; display:block; }
-.leg-details { color: var(--text-muted); font-size:0.85rem; }
-.leg-meta { display:flex; align-items:center; gap:10px; margin-top:8px; font-size:0.8rem; color: var(--text-muted); }
-.badge { background: rgba(0,122,252,0.2); color: var(--primary); padding:2px 6px; border-radius:4px; font-size:0.75rem; font-weight:600; }
-.badge.transfer { background: rgba(255,165,0,0.2); color:#ffa500; }
-
+    body { margin:0; font-family:'Inter', sans-serif; display:flex; height:100vh; overflow:hidden; background:#0e1012; color:#fff;}
+    #map { flex-grow:1; height:100%; }
+    .sidebar { width:64px; background:#17191c; border-right:1px solid #2b2f36; display:flex; flex-direction:column; align-items:center; padding-top:24px; }
+    .nav-item { width:40px; height:40px; margin-bottom:16px; cursor:pointer; color:#9ca3af; border:none; background:transparent; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; text-decoration:none;}
+    .nav-item:hover { background:#23262b; color:#fff; }
+    .nav-item.active { background: rgba(0,122,252,0.15); color:#007afc; }
+    .nav-spacer { flex-grow:1; }
+    .profile-icon { width:32px;height:32px;background:#007afc;border-radius:50%;margin-bottom:24px; display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:bold;}
+    .instructions-panel { position:absolute; top:20px; left:84px; width:360px; background:#17191c; border:1px solid #2b2f36; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.4); padding:24px; max-height:90vh; overflow-y:auto; z-index:5;}
+    .leg-card { background:#0e1012; border:1px solid #2b2f36; border-left:4px solid #007afc; border-radius:6px; padding:12px 16px; margin-bottom:10px;}
+    .leg-header { font-weight:600; color:#fff; margin-bottom:4px; display:block;}
+    .leg-details { color:#9ca3af; font-size:0.85rem; }
+    .leg-meta { display:flex; align-items:center; gap:10px; margin-top:8px; font-size:0.8rem; color:#9ca3af; }
+    .badge { background: rgba(0,122,252,0.2); color: #007afc; padding: 2px 6px; border-radius:4px; font-size:0.75rem; font-weight:600;}
+    .badge.transfer { background: rgba(255,165,0,0.2); color:#ffa500;}
 </style>
 </head>
 <body>
 
 <aside class="sidebar">
-    <button class="nav-item" onclick="window.location.href='dashobard.html'" title="Back to Home">
+    <button class="nav-item" onclick="window.location.href='my_routes.php'" title="Back to My Routes">
         <i class="fa-solid fa-arrow-left"></i>
     </button>
-    <button class="nav-item active" title="Route Details">
-        <i class="fa-solid fa-location-arrow"></i>
-    </button>
-    <a href="my_routes.php" class="nav-item" title="My Routes">
-        <i class="fa-regular fa-bookmark"></i>
-    </a>
     <div class="nav-spacer"></div>
     <div class="profile-icon">CN</div>
 </aside>
 
-<div class="search-panel">
-    <div class="logo"><i class="fa-solid fa-layer-group"></i> <?php echo htmlspecialchars($route['route_name']); ?><span>Navigation</span></div>
-    <div id="instructions"></div>
-</div>
-
+<div class="instructions-panel" id="instructions"></div>
 <div id="map"></div>
 
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script>
-    const map = L.map('map').setView([<?php echo $route['start_lat']; ?>, <?php echo $route['start_lng']; ?>], 13);
+let map, currentPolyline = null, markers = [];
 
- 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap contributors',
-        subdomains: 'abcd',
-        maxZoom: 19
-    }).addTo(map);
+const routeData = <?php echo json_encode($route_result, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>;
 
-    const bounds = [];
+// Dark theme map
+const mapStyles = [
+    { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+    { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+    { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+    { featureType: "administrative.locality", elementType: "labels.text.fill", stylers: [{ color: "#d59563" }] },
+    { featureType: "poi", elementType: "labels.text.fill", stylers: [{ color: "#d59563" }] },
+    { featureType: "poi.park", elementType: "geometry", stylers: [{ color: "#263c3f" }] },
+    { featureType: "poi.park", elementType: "labels.text.fill", stylers: [{ color: "#6b9a76" }] },
+    { featureType: "road", elementType: "geometry", stylers: [{ color: "#38414e" }] },
+    { featureType: "road", elementType: "geometry.stroke", stylers: [{ color: "#212a37" }] },
+    { featureType: "road", elementType: "labels.text.fill", stylers: [{ color: "#9ca5b3" }] },
+    { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#746855" }] },
+    { featureType: "road.highway", elementType: "geometry.stroke", stylers: [{ color: "#1f2835" }] },
+    { featureType: "road.highway", elementType: "labels.text.fill", stylers: [{ color: "#f3d19c" }] },
+    { featureType: "transit", elementType: "geometry", stylers: [{ color: "#2f3948" }] },
+    { featureType: "transit.station", elementType: "labels.text.fill", stylers: [{ color: "#d59563" }] },
+    { featureType: "water", elementType: "geometry", stylers: [{ color: "#17263c" }] },
+    { featureType: "water", elementType: "labels.text.fill", stylers: [{ color: "#515c6d" }] },
+    { featureType: "water", elementType: "labels.text.stroke", stylers: [{ color: "#17263c" }] }
+];
 
-    function addMarker(lat, lng, color, label) {
-        const marker = L.circleMarker([lat, lng], {
-            radius: 8,
-            color: color,
-            fillColor: color,
-            fillOpacity: 1,
-            weight: 2
-        }).addTo(map);
-        if(label) marker.bindTooltip(label, {permanent:true,direction:'top'});
-        bounds.push([lat,lng]);
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 13,
+        center: {lat: routeData.start_stop.lat, lng: routeData.start_stop.lon},
+        styles: mapStyles,
+        disableDefaultUI:false,
+        mapTypeControl:false,
+        streetViewControl:false
+    });
+
+    const bounds = new google.maps.LatLngBounds();
+
+    function addMarker(lat,lng,title,icon,label){
+        const marker = new google.maps.Marker({position:{lat,lng},map:map,title:title,icon:icon,label:label});
+        markers.push(marker);
+        bounds.extend({lat,lng});
     }
 
-    <?php if(!empty($route_data['geometry'])): ?>
-        const routeCoords = <?php echo json_encode($route_data['geometry']['coordinates']); ?>;
-        const latLngs = routeCoords.map(c=>[c[1],c[0]]);
+    // Add start and end markers
+    addMarker(routeData.start_stop.lat, routeData.start_stop.lon, `Start: ${routeData.start_stop.name}`, 'http://maps.google.com/mapfiles/ms/icons/green-dot.png','A');
+    addMarker(routeData.end_stop.lat, routeData.end_stop.lon, `End: ${routeData.end_stop.name}`, 'http://maps.google.com/mapfiles/ms/icons/red-dot.png','B');
 
-        // Draw main route polyline
-        L.polyline(latLngs, {color:'#007afc', weight:6, opacity:0.8}).addTo(map);
+    let instructDiv = document.getElementById("instructions");
+    instructDiv.innerHTML = "";
 
-        // Start & End markers
-        addMarker(latLngs[0][0], latLngs[0][1],'#28a745','Start');
-        addMarker(latLngs[latLngs.length-1][0], latLngs[latLngs.length-1][1],'#dc3545','End');
-
-        // Add intermediate stops if available
-        <?php if(!empty($route_data['steps'])): ?>
-            <?php foreach($route_data['steps'] as $idx => $step): ?>
-                <?php if(!empty($step['lat']) && !empty($step['lng'])): ?>
-                    addMarker(<?php echo $step['lat']; ?>, <?php echo $step['lng']; ?>, '#ffc107','<?php echo $idx+1; ?>');
-                <?php endif; ?>
-            <?php endforeach; ?>
-        <?php endif; ?>
-
-        map.fitBounds(bounds);
-    <?php endif; ?>
-
-    // Display steps in side panel
-    const instructionsDiv = document.getElementById('instructions');
-    instructionsDiv.innerHTML = '';
-    <?php if(!empty($route_data['steps'])): ?>
-        <?php foreach($route_data['steps'] as $idx => $step): ?>
-            const stepCard = document.createElement('div');
-            stepCard.className = 'leg-card';
-            stepCard.innerHTML = `
-                <span class="leg-header">
-                    <i class="fa-solid fa-bus"></i> Step <?php echo $idx+1; ?>
-                </span>
-                <div class="leg-details"><?php echo htmlspecialchars($step['instruction']); ?></div>
+    if(routeData.route_type === "Direct") {
+        const leg = routeData.route;
+        instructDiv.innerHTML = `
+            <div class="leg-card">
+                <span class="leg-header"><i class="fa-solid fa-bus"></i> Direct Route Found</span>
+                <div class="leg-details">Take <strong>${leg.name}</strong> to your destination.</div>
                 <div class="leg-meta">
-                    <span class="badge"><?php echo round($step['distance']); ?> m</span>
-                    <span class="badge"><?php echo round($step['duration']/60); ?> min</span>
+                    <span class="badge">Direct</span>
+                    <span><i class="fa-solid fa-stop"></i> ${leg.stops.length} stops</span>
+                    <span><i class="fa-solid fa-route"></i> ${routeData.total_distance_km} km</span>
+                </div>
+            </div>
+        `;
+        const path = leg.stops.map(s => ({lat:s.lat,lng:s.lon}));
+        currentPolyline = new google.maps.Polyline({path:path, geodesic:true, strokeColor:"#007afc", strokeOpacity:1.0, strokeWeight:6, map:map});
+        path.forEach(p => bounds.extend(p));
+    } else if(routeData.route_type === "Indirect" && Array.isArray(routeData.journey)) {
+        const colors = ["#007afc","#4CAF50","#FFC107","#E91E63","#9C27B0"];
+        routeData.journey.forEach((leg,idx)=>{
+            const stops = leg.stops || [];
+            const transferInfo = leg.transfer_at ? `<div class='leg-details'><i class="fa-solid fa-right-left"></i> Transfer at: <strong>${leg.transfer_at.name}</strong></div>` : '';
+            instructDiv.innerHTML += `
+                <div class="leg-card" style="border-left-color: ${colors[idx % colors.length]}80;">
+                    <span class="leg-header"><i class="fa-solid fa-bus"></i> Leg ${idx+1}: Take <strong>${leg.route_name}</strong></span>
+                    <div class="leg-meta">
+                        <span class="badge" style="background:${colors[idx % colors.length]}33;color:${colors[idx % colors.length]};">Leg ${idx+1}</span>
+                        <span><i class="fa-solid fa-route"></i> ${leg.distance_km} km</span>
+                        <span><i class="fa-solid fa-stop"></i> ${stops.length} stops</span>
+                    </div>
+                    ${transferInfo}
                 </div>
             `;
-            instructionsDiv.appendChild(stepCard);
-        <?php endforeach; ?>
-    <?php else: ?>
-        instructionsDiv.innerHTML = '<p>No detailed steps available.</p>';
-    <?php endif; ?>
+            const legPath = stops.map(s => ({lat:s.lat,lng:s.lon}));
+            if(legPath.length>0) new google.maps.Polyline({path:legPath, geodesic:true, strokeColor:colors[idx%colors.length], strokeOpacity:1.0, strokeWeight:6, map:map});
+            if(leg.transfer_at) addMarker(leg.transfer_at.lat,leg.transfer_at.lon,`Transfer: ${leg.transfer_at.name}`,'http://maps.google.com/mapfiles/ms/icons/orange-dot.png',`T${idx+1}`);
+        });
+    } else {
+        instructDiv.innerHTML = "<div class='leg-card'>No valid route data available.</div>";
+    }
+
+    map.fitBounds(bounds);
+}
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmF3jeRV9rWZTUEWXtusYzm95WNJnBNZc&callback=initMap&loading=async" async defer></script>
 </body>
 </html>
-<?php $conn->close(); ?>

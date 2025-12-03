@@ -1,4 +1,5 @@
 <?php
+/* rose.mpawenayo*/
 require 'db_connect.php';
 
 // Start session securely
@@ -18,10 +19,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Regenerate session ID periodically for security
+
 if (!isset($_SESSION['created'])) {
     $_SESSION['created'] = time();
-} elseif (time() - $_SESSION['created'] > 1800) { // 30 minutes
+} elseif (time() - $_SESSION['created'] > 1800) { 
     session_regenerate_id(true);
     $_SESSION['created'] = time();
 }
@@ -38,17 +39,18 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_token'])) {
     $result = $stmt->get_result();
 
     if ($row = $result->fetch_assoc()) {
-
+        
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['username'] = $row['username'];
 
 
-        $_SESSION['role'] = $row['role']; // 'user' or 'admin'
+        $_SESSION['role'] = $row['role']; 
         $_SESSION['is_admin'] = ($row['role'] === 'admin');
 
 
         $_SESSION['login_time'] = time();
     } else {
+        // Invalid token → delete cookie
 
         $secureFlag = isset($isSecure) ? $isSecure : false;
         setcookie("remember_token", "", time() - 3600, "/", "", $secureFlag, true);
@@ -56,12 +58,12 @@ if (!isset($_SESSION['user_id']) && isset($_COOKIE['remember_token'])) {
     $stmt->close();
 }
 
-
+// Check if user is logged in 
 function is_logged_in() {
     return isset($_SESSION['user_id']);
 }
 
-
+// Check if user is admin 
 function is_admin() {
     if (isset($_SESSION['is_admin'])) {
         return !empty($_SESSION['is_admin']);

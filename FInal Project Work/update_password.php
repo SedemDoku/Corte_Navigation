@@ -1,5 +1,5 @@
 <?php
-
+/* gacuti.kethia */
 header('Content-Type: application/json');
 require 'db_connect.php';
 
@@ -12,7 +12,7 @@ if (!$token || !$password) {
     exit;
 }
 
-// 1. Hash the token to match what is in the DB
+// 1. Hash the token to match what is in the database
 $token_hash = hash("sha256", $token);
 
 // 2. Check if token matches AND is not expired
@@ -27,7 +27,7 @@ if ($row = $result->fetch_assoc()) {
     // 3. Hash the NEW password
     $new_password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    // 4. Update password and Clear the token so it can't be used again
+  
     $updateStmt = $conn->prepare("UPDATE users SET password = ?, reset_token_hash = NULL, reset_token_expires_at = NULL WHERE id = ?");
     $updateStmt->bind_param("si", $new_password_hash, $userId);
     

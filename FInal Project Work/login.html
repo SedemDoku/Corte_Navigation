@@ -8,6 +8,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <style>
+    /* gacuti.kethia*/
+
     :root {
         --bg-dark: #0e1012;
         --bg-card: #17191c;
@@ -116,7 +118,7 @@
         border-color: var(--primary);
     }
 
-    /* --- NEW STYLES FOR REMEMBER/FORGOT --- */
+   
     .form-options {
         display: flex;
         justify-content: space-between;
@@ -138,7 +140,7 @@
         width: auto;
         padding: 0;
         margin: 0;
-        accent-color: var(--primary); /* Colors the checkbox blue */
+        accent-color: var(--primary); 
         cursor: pointer;
     }
 
@@ -151,7 +153,7 @@
         color: var(--primary);
         text-decoration: underline;
     }
-    /* -------------------------------------- */
+
 
     button {
         width: 100%;
@@ -213,13 +215,13 @@
         <input type="password" id="password" placeholder="Password">
     </div>
 
-<!-- In the form-options section, change this line: -->
+
 <div class="form-options">
     <label class="remember-me">
         <input type="checkbox" id="rememberMe">
         Remember me
     </label>
-    <!-- FIXED: Changed from forgot_password.php to forgot_password.html -->
+
     <a href="forgot_password.html" class="forgot-link">Forgot password?</a>
 </div>
 
@@ -281,7 +283,7 @@
         const data = await res.json();
 
         if (data.status === "success") {
-          // Handle "Remember Me"
+          
           if (remember) {
               localStorage.setItem("corte_saved_email", email);
           } else {

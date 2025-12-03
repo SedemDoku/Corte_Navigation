@@ -1,4 +1,5 @@
 <?php
+/* gacuti.kethia */
 header('Content-Type: application/json');
 
 
@@ -7,14 +8,13 @@ require 'authentication.php';
 
 require_once 'db_connect.php';
 
-
 $input = json_decode(file_get_contents("php://input"), true);
 
 $email = trim($input['email'] ?? '');
 $password = trim($input['password'] ?? '');
 $remember = $input['remember'] ?? false;
 
-
+// --- Basic validation ---
 if (!$email || !$password) {
     echo json_encode([
         "status" => "error",
@@ -31,6 +31,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
+// --- 1. Get user by email ---
 $stmt = $conn->prepare("
     SELECT id, username, email, password, role 
     FROM users 
@@ -49,7 +50,7 @@ if (!$user = $result->fetch_assoc()) {
     exit;
 }
 
-  
+// --- 2. Verify password ---
 if (!password_verify($password, $user['password'])) {
     echo json_encode([
         "status" => "error",
@@ -58,11 +59,12 @@ if (!password_verify($password, $user['password'])) {
     exit;
 }
 
+
 $_SESSION['user_id'] = $user['id'];
 $_SESSION['username'] = $user['username'];
 $_SESSION['email'] = $user['email'];
 $_SESSION['login_time'] = time();
-$_SESSION['role'] = $user['role'];  // 'user' or 'admin'
+$_SESSION['role'] = $user['role'];  
 $_SESSION['is_admin'] = ($user['role'] === 'admin');
 
 
@@ -77,6 +79,7 @@ $response = [
 
 
 
+// Determine if the connection is secure so remember cookie security is set accordingly
 $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
 
 if ($remember) {
@@ -105,17 +108,17 @@ if ($remember) {
         time() + (30 * 24 * 60 * 60), // 30 days
         "/",
         "",
-        $isSecure,  // secure flag based on HTTPS
-        true   // HttpOnly
+        $isSecure,  
+        true   
     );
 
     $response["remember"] = true;
 }
 
-// Cleanup
+
 $stmt->close();
 $conn->close();
 
-// Output success response
+
 echo json_encode($response);
 ?>

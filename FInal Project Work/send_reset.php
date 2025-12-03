@@ -1,5 +1,5 @@
 <?php
-// send_reset.php
+/* gacuti.kethia */
 header('Content-Type: application/json');
 require 'db_connect.php';
 
@@ -22,13 +22,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-
+// 1. Generate a random token
 $token = bin2hex(random_bytes(16));
-
+// 2. Hash it for storage (security best practice)
 $token_hash = hash("sha256", $token);
+// 3. Set expiry 
 $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
 
-
+// 4. Update User
 $stmt = $conn->prepare("UPDATE users SET reset_token_hash = ?, reset_token_expires_at = ? WHERE email = ?");
 $stmt->bind_param("sss", $token_hash, $expiry, $email);
 $stmt->execute();
@@ -43,7 +44,7 @@ if ($stmt->affected_rows > 0) {
         "debug_link" => $resetLink 
     ]);
 } else {
-
+    
     echo json_encode(["status" => "success", "message" => "If that email exists, a link was sent."]);
 }
 

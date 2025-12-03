@@ -1,4 +1,5 @@
 <?php
+/*gacuti.kethia*/
 header('Content-Type: application/json');
 require 'db_connect.php';
 
@@ -9,7 +10,7 @@ $username = trim($input['username'] ?? '');
 $email    = trim($input['email'] ?? '');
 $pass     = trim($input['password'] ?? '');
 
-
+/* Basic validation */
 if (!$username || !$email || !$pass) {
     echo json_encode([
         "status" => "error",
@@ -31,7 +32,7 @@ if (strlen($pass) < 8) {
     exit;
 }
 
-
+/* 2. Check if email already exists*/
 $checkEmail = $conn->prepare("SELECT id FROM users WHERE email = ?");
 $checkEmail->bind_param("s", $email);
 $checkEmail->execute();
@@ -44,7 +45,7 @@ if ($resultEmail->num_rows > 0) {
 }
 $checkEmail->close();
 
-
+/* 3. Check if username already exists */
 $checkUser = $conn->prepare("SELECT id FROM users WHERE username = ?");
 $checkUser->bind_param("s", $username);
 $checkUser->execute();
@@ -57,6 +58,7 @@ if ($resultUser->num_rows > 0) {
 }
 $checkUser->close();
 
+/* 4. Insert a user(the password is hashed)*/
 $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
 
 $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
